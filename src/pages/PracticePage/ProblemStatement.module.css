@@ -1,0 +1,136 @@
+.problemStatementContainer {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.problemStatement {
+  width: 50%;
+  padding: 20px;
+
+  border-radius: 5px;
+  border-right: 1px solid var(--ques-text);
+  width: 800px;
+  overflow: auto; /* Allow vertical scrolling if content exceeds the container */
+}
+.problemStatement::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for webkit browsers */
+}
+
+.solutionEditor {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--editor-bg-color);
+}
+
+.headers {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.button.show {
+  background-color: #0056b3;
+}
+
+.solutionsList {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.solutionItem {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: var(--item-bg-color);
+}
+
+.solutionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.solutionContent {
+  display: none;
+}
+
+.solutionContent.show {
+  display: block;
+}
+
+.solutionInput {
+  flex-grow: 1;
+  padding: 10px;
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+  border: none;
+  resize: none;
+  height: calc(100vh - 100px); /* Adjust height as needed */
+}
+
+.comments {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--comments-bg-color);
+  color: var(--comments-text-color);
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 10px;
+  transition: max-height 0.5s ease-in-out;
+  gap: 30px;
+}
+
+.comment {
+  margin-bottom: 10px;
+  border: 1px solid var(--ques-text);
+  background-color: var(--practice-background);
+  display: flex;
+  /* align-items: center; */
+
+  justify-content: space-between;
+  margin: 0 5px;
+  padding: 0 5px;
+}
+
+.comment p {
+  padding-top: 5px;
+}
+
+.userData {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+}
+
+.commentContent {
+  white-space: pre-wrap; /* Ensures that whitespace is preserved */
+  word-wrap: break-word; /* Ensures long words break to fit within the container */
+}
+
+textarea[name="commentInput"] {
+  min-height: 200px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  resize: none;
+  background-color: var(--practice-background);
+  color: var(--ques-text);
+}

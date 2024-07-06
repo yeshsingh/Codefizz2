@@ -1,0 +1,143 @@
+/* Importing fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Pacifico&display=swap');
+
+:root {
+  --navbar-background: black;
+  --navbar-bottom: rgb(45, 90, 139);
+  --navbar-text: white;
+  --navbar-span: rgb(255, 215, 0); /* Highlight color */
+  --navbar-active: rgb(255, 215, 0);
+  --ul-color: white;
+  --logo-font: 'Pacifico', cursive;
+  --nav-font: 'Roboto', sans-serif;
+  --z-font: 'Pacifico', cursive;
+  --coder-font: 'Roboto', sans-serif;
+  --z-color: gray; /* Gray color for "Z" */
+  --coder-color: white;
+}
+
+[data-theme="light"] {
+  --navbar-background: rgb(95, 171, 247);
+  --navbar-bottom: black;
+  --navbar-text: black;
+  --navbar-span: rgb(0, 0, 0);
+  --ul-color: black;
+  --navbar-active: black;
+  --z-color: gray; /* Gray color for "Z" */
+  --coder-color: black;
+}
+
+body {
+  font-family: var(--nav-font);
+}
+
+.nav-bar {
+  background-color: var(--navbar-background);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid var(--navbar-bottom);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 28px;
+}
+
+.logo .z {
+  font-family: var(--z-font);
+  color: var(--z-color);
+  font-size: 60px;
+  margin-right: 12px; /* Make the "Z" bigger */
+}
+
+.logo .coder {
+  font-family: var(--coder-font);
+  color: var(--coder-color);
+}
+
+.hamburger-menu {
+  position: absolute;
+  top: 35px;
+  right: 16px;
+  color: var(--navbar-text);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-bar ul {
+  padding-right: 50px;
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-bar a {
+  color: var(--ul-color);
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.nav-bar a:hover,
+.nav-bar .active {
+  color: var(--navbar-active);
+}
+
+.nav-bar .active {
+  padding-bottom: 2px;
+  border-bottom: 2px solid var(--navbar-active);
+}
+
+@media (max-width: 1050px) {
+  .nav-bar {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 750px) {
+  .hamburger-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 750px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo {
+    margin-left: 0;
+  }
+  
+  .nav-bar ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .nav-bar ul.open {
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav-bar ul li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-bar .active {
+    border: none;
+    color: var(--navbar-active);
+  }
+  
+  .nav-bar a:not(.active):hover {
+    color: var(--navbar-active);
+  }
+}

@@ -1,0 +1,281 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hover-color: rgb(130, 130, 152);
+  --header-bg: black;
+  --hero-title: white;
+  --title-tag: #1e90ff;
+  --container-bg: rgba(0, 0, 0, 0.8);
+  --contest-a: #1e90ff;
+  --calender-bg: rgb(148, 177, 227);
+  --calender-color: white;
+  --secondary-color: #dcdcdc;
+  --bg-color: #111;
+}
+
+[data-theme="light"] {
+  --header-bg: #5babfc;
+  --hero-title: black;
+  --title-tag: #ffffff;
+  --container-bg: white;
+  --contest-a: rgb(22, 77, 187);
+  --calender-bg: rgb(193, 219, 246);
+  --calender-color: black;
+}
+
+html, body {
+  background: linear-gradient(#000, var(--bg-color), #000);
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  color: var(--secondary-color);
+}
+
+.hero-section {
+  text-align: center;
+  padding: 2rem;
+  background: var(--header-bg);
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  color: var(--hero-title);
+}
+
+.hero-tagline {
+  font-size: 1.25rem;
+  color: var(--title-tag);
+}
+
+.contests-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.calendar-container, .recent-contests {
+  background-color: var(--container-bg);
+  padding: 2rem;
+  border-radius: 12px; /* Slightly larger radius for a modern look */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Softer shadow for a lifted effect */
+  width: 45%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.subheading {
+  color: var(--hero-title);
+  font-size: 1.5rem; /* Increased font size for better visibility */
+  font-weight: 600; /* Bold for emphasis */
+  margin-bottom: 1rem; /* Increased margin for spacing */
+}
+
+.contests-list {
+  list-style: none;
+  padding: 0;
+  width: 100%; /* Full width for better alignment */
+}
+
+.contest-item {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px; /* Rounded corners for items */
+  background: rgba(0, 0, 0, 0.1); /* Subtle background for items */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+}
+
+.contest-item:hover {
+  background-color: rgba(0, 0, 0, 0.2); /* Darker background on hover */
+  transform: scale(1.02); /* Slight zoom effect */
+}
+
+.contest-item a {
+  color: var(--contest-a);
+  text-decoration: none;
+  font-weight: 500; /* Medium weight for better readability */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.contest-item a:hover {
+  color: var(--hover-color);
+  text-decoration: underline;
+}
+
+.calender {
+  background-color: var(--calender-bg);
+  color: var(--calender-color);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Softer shadow for a lifted effect */
+  width: 100%; /* Full width for better alignment */
+  text-align: center;
+  position: relative;
+}
+
+.calender .calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.calender .calendar-header button {
+  background-color: transparent;
+  border: none;
+  color: var(--hero-title);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.calender .calendar-header button:hover {
+  color: var(--hover-color);
+}
+
+.calender .calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columns for days of the week */
+  gap: 0.5rem;
+}
+
+.calender .calendar-grid .calendar-day {
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+  position: relative; /* Positioning context for event dots */
+  height: 80px; /* Fixed height for consistency */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calender .calendar-grid .calendar-day:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.calender .calendar-grid .calendar-day.selected {
+  background-color: var(--contest-a);
+  color: white;
+}
+
+.calender .calendar-grid .calendar-day .day-number {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.calender .calendar-grid .calendar-day .event-dots {
+  position: absolute;
+  bottom: 5px; /* Positioning at the bottom of the cell */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2px;
+}
+
+.calender .calendar-grid .calendar-day .event-dots .dot {
+  height: 6px;
+  width: 6px;
+  background-color: var(--contest-a);
+  border-radius: 50%;
+}
+
+/* Additional styling for recent contests section */
+.recent-contests {
+  background-color: var(--container-bg);
+  padding: 2rem;
+  border-radius: 12px; /* Rounded corners for a modern look */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Softer shadow for a lifted effect */
+  width: 100%; /* Full width for better alignment */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.recent-contests h2 {
+  font-size: 2rem; /* Larger font size for the title */
+  color: var(--hero-title);
+  margin-bottom: 1rem; /* Spacing below the title */
+}
+
+.recent-contests ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.recent-contests li {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px; /* Rounded corners for list items */
+  background: rgba(0, 0, 0, 0.1); /* Subtle background for items */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+}
+
+.recent-contests li:hover {
+  background-color: rgba(0, 0, 0, 0.2); /* Darker background on hover */
+  transform: scale(1.02); /* Slight zoom effect */
+}
+
+
+.contest-dot {
+  height: 8px;
+  width: 8px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.calender .calendar-grid .calendar-day .event-dots .dot {
+  height: 6px;
+  width: 6px;
+  background-color: var(--contest-a);
+  border-radius: 50%;
+}
+.recent-contests li a {
+  color: var(--contest-a);
+  text-decoration: none;
+  font-weight: 500; /* Medium weight for better readability */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.recent-contests li a:hover {
+  color: var(--hover-color);
+  text-decoration: underline;
+}
+
+.recent-contests .date {
+  font-size: 0.875rem; /* Smaller font size for date */
+  color: var(--secondary-color); /* Slightly lighter color for date */
+  margin-bottom: 0.5rem; /* Spacing below the date */
+}
+.dot-text {
+  color: black; /* Set text color to black */
+  font-size: 0.875rem; /* Adjust font size if needed */
+  margin-top: 1rem; /* Space above the text */
+}
+.selected-date-contests {
+  color: black; /* Set text color to black */
+  font-size: 1rem; /* Adjust font size if needed */
+  margin-top: 1rem; /* Space above the text */
+}
+
+.selected-date-contests h3 {
+  color: black; /* Ensure the date heading is also black */
+}

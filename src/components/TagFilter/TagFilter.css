@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.tag-filter-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Hide overflow to keep content within bounds */
+  background: linear-gradient(135deg, #e0e5ec, #ffffff); /* Soft gradient background */
+  padding: 10px 20px; /* Padding to create space around the slider */
+  border: 1px solid #ddd; /* Light border around the slider */
+  border-radius: 10px; /* Rounded corners for the container */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+  position: relative; /* Ensure container is positioned relative to position controls */
+}
+
+.scroll-buttons {
+  position: absolute;
+  top: 50%;
+  width: calc(100% - 80px); /* Adjust width to avoid overlap with buttons */
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.scroll-button {
+  background-color: #007bff; /* Primary button color */
+  border: none;
+  color: white;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px; /* Font size for better visibility */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
+}
+
+.scroll-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+  transform: scale(1.1); /* Slightly larger button on hover */
+}
+
+.tag-filters {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin; /* Thin scrollbar for Firefox */
+  scrollbar-color: #007bff #e0e5ec; /* Custom scrollbar color for Firefox */
+  padding: 5px 0; /* Padding inside the slider */
+  margin: 0;
+  white-space: nowrap;
+  border-radius: 8px; /* Match the border-radius for smooth corners */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.tag-filters::-webkit-scrollbar {
+  width: 12px; /* Custom width for scrollbar */
+}
+
+.tag-filters::-webkit-scrollbar-track {
+  background: linear-gradient(135deg, #e0e5ec, #ffffff); /* Gradient for the track */
+  border-radius: 8px;
+}
+
+.tag-filters::-webkit-scrollbar-thumb {
+  background: #007bff; /* Primary color for the thumb */
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition for background color */
+}
+
+.tag-filters::-webkit-scrollbar-thumb:hover {
+  background: #0056b3; /* Darker blue on hover */
+  transform: scale(1.1); /* Slightly larger thumb on hover */
+}
+
+.tag-filters label {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+.tag-filters label span {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #ddd; /* Light border for tags */
+  border-radius: 20px;
+  background-color: #f5f5f5; /* Soft background color for tags */
+  color: #333; /* Dark text color for contrast */
+  transition: background-color 0.3s, color 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tag-filters label span:hover {
+  background-color: #007bff; /* Highlight color on hover */
+  color: white; /* White text color on hover */
+  border-color: #007bff; /* Border color on hover */
+  transform: scale(1.05); /* Slightly larger tag on hover */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect on hover */
+}
+
+.tag-filters input[type="checkbox"] {
+  display: none;
+}
+
+.tag-filters input[type="checkbox"]:checked + span {
+  background-color: #007bff; /* Checked background color */
+  color: white;
+  border-color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .tag-filter-container {
+    padding: 10px; /* Adjusted padding for smaller screens */
+  }
+
+  .scroll-button {
+    padding: 8px;
+    font-size: 14px; /* Adjusted font size for smaller buttons */
+  }
+
+  .tag-filters label span {
+    padding: 6px 12px;
+    font-size: 14px; /* Adjusted font size for tags */
+  }
+}

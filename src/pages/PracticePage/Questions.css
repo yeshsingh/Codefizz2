@@ -1,0 +1,254 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --filter-tag: #282c34; /* Dark background for tags in .tag-filters */
+  --filter-border: #4e4e4e; /* Darker border color */
+  --filter-text: #ffffff; /* White text */
+  --filter-checked: #3498db; /* Bright blue for checked state */
+  --filter-hover: #2980b9; /* Darker blue for hover effect */
+  --ques-item: #f0f0f0; /* Light grey for question item border */
+  --pagination-bg: #007bff; /* Bright blue for pagination buttons */
+  --pagination-hover: #0056b3; /* Darker blue for pagination hover */
+  --pagination-disabled: #cccccc; /* Light grey for disabled pagination */
+  --card-bg: #ffffff; /* White background for cards */
+  --card-shadow: rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+  --tag-bg: #6c757d; /* Gray background for tags in .question-tags */
+  --tag-hover: #5a6268; /* Darker gray for tag hover in .question-tags */
+  --table-bg: #ffffff; /* White background for table */
+  --table-border: #dddddd; /* Light grey border for table */
+  --table-header-bg: #f8f9fa; /* Light grey background for table header */
+  --table-header-text: #333; /* Dark text for table header */
+  --table-row-hover: #f1f1f1; /* Light grey background for row hover */
+}
+
+[data-theme="light"] {
+  --filter-tag: #ffffff; /* White background for tags in light mode */
+  --filter-border: #333; /* Dark border color in light mode */
+  --filter-text: #333; /* Dark text in light mode */
+  --filter-hover: #87cefa; /* Light blue for hover effect */
+  --ques-item: #ffffff; /* White for question item border */
+  --pagination-bg: #0056b3; /* Dark blue for pagination buttons in light mode */
+  --pagination-hover: #003d7a; /* Even darker blue for pagination hover */
+  --pagination-disabled: #e0e0e0; /* Light grey for disabled pagination in light mode */
+  --card-bg: #ffffff; /* White background for cards in light mode */
+  --card-shadow: rgba(0, 0, 0, 0.05); /* Lighter shadow for cards */
+  --tag-bg: #6c757d; /* Gray background for tags in .question-tags in light mode */
+  --tag-hover: #5a6268; /* Darker gray for tag hover in .question-tags in light mode */
+  --table-bg: #ffffff; /* White background for table in light mode */
+  --table-border: #dddddd; /* Light grey border for table in light mode */
+  --table-header-bg: #f8f9fa; /* Light grey background for table header in light mode */
+  --table-header-text: #333; /* Dark text for table header in light mode */
+  --table-row-hover: #f1f1f1; /* Light grey background for row hover in light mode */
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5; /* Slightly off-white background */
+  color: #333; /* Dark text color for better readability */
+}
+
+.tag-filters {
+  margin: 20px auto;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px;
+  background: linear-gradient(90deg, #ffffff 0%, #f0f0f0 100%);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+}
+
+.tag-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.tag-filters label {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.tag-filters input[type="checkbox"] {
+  display: none;
+}
+
+.tag-filters input[type="checkbox"]:checked + span {
+  background-color: var(--filter-checked);
+  color: var(--filter-text);
+  border-color: var(--filter-checked);
+}
+
+.tag-filters label span {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid var(--filter-border);
+  border-radius: 25px;
+  background-color: var(--filter-tag); /* Keeps the filter tag color */
+  color: var(--filter-text);
+  transition: background-color 0.3s, color 0.3s, transform 0.2s ease;
+  font-weight: 700;
+}
+
+.tag-filters label span:hover {
+  background-color: var(--filter-hover);
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.questions-list {
+  margin: 50px auto;
+  max-width: 1200px;
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--card-shadow);
+}
+
+.question-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--ques-item);
+  transition: background-color 0.3s;
+}
+
+.question-item:hover {
+  background-color: #f9f9f9; /* Light grey background on hover */
+}
+
+.question-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #222; /* Darker text color for better readability */
+}
+
+.question-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.question-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+}
+
+.question-links img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.question-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.question-tags .tag {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--tag-bg); /* Gray background for tags */
+  color: var(--filter-text); /* White text */
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  white-space: nowrap;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.question-tags .tag:hover {
+  background-color: var(--tag-hover); /* Darker gray for tag hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  background-color: var(--pagination-bg);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 16px;
+  margin: 0 6px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.pagination button:hover {
+  background-color: var(--pagination-hover);
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.pagination button:disabled {
+  background-color: var(--pagination-disabled);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination button.active {
+  background-color: var(--pagination-hover);
+}
+
+/* Table Styling */
+.table-container {
+  margin: 50px auto;
+  max-width: 1200px;
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--card-shadow);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background-color: var(--table-header-bg);
+}
+
+.table th {
+  padding: 12px;
+  text-align: left;
+  color: var(--table-header-text);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border-bottom: 2px solid var(--table-border);
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--table-border);
+}
+
+.table tr:hover {
+  background-color: var(--table-row-hover); /* Light grey background for row hover */
+}
+
+.table caption {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
